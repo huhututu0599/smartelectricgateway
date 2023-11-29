@@ -35,8 +35,8 @@ void setup()
 {
     Serial.begin(115200);
     ticker.attach(1, tickerCount);
-    connectWiFi();
-    mqmsg.connectMQTTServer();
+    // connectWiFi();
+    // mqmsg.connectMQTTServer();
 
     rs.OneFstSetUp();
 
