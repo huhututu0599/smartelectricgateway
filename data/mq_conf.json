@@ -1,0 +1,1 @@
+{"mqtt":{"mqtt_address":"sjiot.wit.cn","mqtt_port":1883,"mqtt_pub_frequency":10,"mqtt_username":"sjiot","mqtt_password":"emqx@sjiot123","MQTT_Secret_Check_enable":false}}
