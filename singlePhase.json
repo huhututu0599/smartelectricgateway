@@ -1,0 +1,16 @@
+﻿{
+	"localtime": "",
+    "Phase":"single",
+	"Total": {
+		"TotalPower": "",               
+		"TotalVoltage": "",            
+        "TotalCurrent":"",				
+        "Activepower":"",				
+        "Apparentpower":""		
+	},
+    "NeutralwireCurrent":"",
+    "GridFrequency":"",
+    "MeterInternalTemperature":"",
+    "ClockBatteryVoltage":"",
+    "InternalBatteryOperatingTime":""
+}

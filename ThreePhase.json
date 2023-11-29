@@ -1,0 +1,30 @@
+﻿{
+    "localtime": "",
+    "Phase":"Three",
+    "PhaseA": {
+        "TotalPower": "",
+        "TotalVoltage": "",
+        "TotalCurrent": "",
+        "Activepower": "",
+        "Apparentpower": ""
+    },
+    "PhaseB": {
+        "TotalPower": "",
+        "TotalVoltage": "",
+        "TotalCurrent": "",
+        "Activepower": "",
+        "Apparentpower": ""
+    },
+    "PhaseC": {
+        "TotalPower": "",
+        "TotalVoltage": "",
+        "TotalCurrent": "",
+        "Activepower": "",
+        "Apparentpower": ""
+    },
+    "NeutralwireCurrent":"",
+    "GridFrequency":"",
+    "MeterInternalTemperature":"",
+    "ClockBatteryVoltage":"",
+    "InternalBatteryOperatingTime":""
+}
