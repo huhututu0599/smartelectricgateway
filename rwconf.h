@@ -18,6 +18,7 @@ public:
   void ReadMqttConf();
   void ReadConfStat();
   void ReadWorkConf();
+  void ReadElecConf();
   void ReadIPInfoConf();
   void ReadLic();
 
@@ -26,7 +27,7 @@ public:
   void SaveSatatConf(int conf_state);
   void SaveMqConf(String mqtt_address, int mqtt_port, int mqtt_pub_frequency,String mqtt_username,String mqtt_password,bool MQTT_Secret_Check_enable);
   void SaveLic(String localLic, String OneShtLic, String TwoShtLic);
-  // void SaveEMNumber(String EMNumber);
+  void SaveElecConf(String Enable_Phase, String Enable_electricity_meter_number, String Enable_TotalPower, String Enable_TotalVoltage, String Enable_TotalCurrent, String Enable_Activepower, String Enable_Apparentpower, String Enable_GridFrequency, String Enable_MeterInternalTemperature, String Enable_ClockBatteryVoltage);
 
   const char *GetMqttAddressV();
   String GetMqttUsernameV();

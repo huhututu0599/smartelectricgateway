@@ -155,8 +155,6 @@ void rwConf::ReadWorkConf()
   fstfrequency = doc3["fst"]["Afrequency"];
 
   file3.close();
-  Serial.println("↓↓↓↓↓↓↓↓↓↓↓读取work配置文件↓↓↓↓↓↓↓↓↓↓↓");
-  Serial.println("↑↑↑↑↑↑↑↑↑↑↑读取work配置文件↑↑↑↑↑↑↑↑↑↑");
 }
 
 /// @brief 读取本机存储的lic
@@ -274,6 +272,34 @@ void rwConf::SaveLic(String localLic, String OneShtLic, String TwoShtLic)
   configLicFile.close();
 }
 
+/// @brief 将Elc保存到内存
+/// @param Enable_electricity_meter_number;
+/// @param Enable_TotalPower;
+/// @param Enable_TotalVoltage;
+/// @param Enable_TotalCurrent;
+/// @param Enable_Activepower;
+/// @param Enable_Apparentpower;
+/// @param Enable_GridFrequency;
+/// @param Enable_MeterInternalTemperature;
+/// @param Enable_ClockBatteryVoltage;
+void rwConf::SaveElecConf(String Enable_Phase, String Enable_electricity_meter_number, String Enable_TotalPower, String Enable_TotalVoltage, String Enable_TotalCurrent, String Enable_Activepower, String Enable_Apparentpower, String Enable_GridFrequency, String Enable_MeterInternalTemperature, String Enable_ClockBatteryVoltage)
+{
+  StaticJsonDocument<1024> doc61;
+  doc61["electricity_meter_number"] = Enable_electricity_meter_number;
+  doc61["Enable_TotalPower"] = Enable_TotalPower;
+  doc61["Enable_TotalVoltage"] = Enable_TotalVoltage;
+  doc61["Enable_TotalCurrent"] = Enable_TotalCurrent;
+  doc61["Enable_Activepower"] = Enable_Activepower;
+  doc61["Enable_Apparentpower"] = Enable_Apparentpower;
+  doc61["Enable_GridFrequency"] = Enable_GridFrequency;
+  doc61["Enable_MeterInternalTemperature"] = Enable_MeterInternalTemperature;
+  doc61["Enable_ClockBatteryVoltage"] = Enable_ClockBatteryVoltage;
+
+  File configEleFile = SPIFFS.open("/elec_conf.json", "w");
+  serializeJson(doc61, configEleFile);
+  configEleFile.close();
+}
+
 /// @brief 将mqtt地址通过方法返回
 /// @return mqtt地址
 const char *rwConf::GetMqttAddressV()
@@ -294,7 +320,6 @@ String rwConf::GetMqttPasswordV()
 {
   return MQTT_password;
 }
-
 
 /// @brief 将是否启用mqtt账号密码通过方法返回
 /// @return 是否启用
