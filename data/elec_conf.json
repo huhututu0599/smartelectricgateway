@@ -1,15 +1,13 @@
 {
-    "localtime": "",
-    "Phase": "single",
-    "electricity_meter_number":"20210111",
-    "Total": {
-      "TotalPower": "",
-      "TotalVoltage": "",
-      "TotalCurrent": "",
-      "Activepower": "",
-      "Apparentpower": ""
-    },
-    "GridFrequency": "",
-    "MeterInternalTemperature": "",
-    "ClockBatteryVoltage": "" 
+	"localtime": "",
+	"Phase": "single",
+	"electricity_meter_number": "20210111",
+	"TotalPower": true,
+	"TotalVoltage": true,
+	"TotalCurrent": true,
+	"Activepower": true,
+	"Apparentpower": true,
+	"GridFrequency": true,
+	"MeterInternalTemperature": true,
+	"ClockBatteryVoltage": true
 }
