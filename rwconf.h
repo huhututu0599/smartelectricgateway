@@ -21,7 +21,8 @@ public:
   void ReadElecConf();
   void ReadIPInfoConf();
   void ReadLic();
-
+  void ReadElceConf();
+  
   void SaveWorkConf(String sendmod, int mxnum, int mxAfrequency, int shtnum, int shtAfrequency, int fstnum, int fstAfrequency);
   void SaveIPConf(String wifi_ssid, String wifi_password, bool dhcp_info, String IpInfo, String Subnetmask_info, String Gateway_info, String Dns1_info, String Dns2_info);
   void SaveSatatConf(int conf_state);
