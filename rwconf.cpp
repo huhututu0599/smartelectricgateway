@@ -157,6 +157,40 @@ void rwConf::ReadWorkConf()
   file3.close();
 }
 
+/// @brief 读取工作模式配置文件
+void rwConf::ReadElecConf()
+{
+  // Serial.println("-----程序进入读取Elec配置文件----");
+
+  const size_t capacity_Elec = 1024;
+  DynamicJsonDocument doc_elec(capacity_Elec);
+
+  // 从闪存文件系统中读取即将解析的json文件
+  File file_Elec = SPIFFS.open("/elec_conf.json", "r");
+
+  // Serial.println(file_Elec);
+  // 反序列化数据
+  deserializeJson(doc_elec, file_Elec);
+
+  const char *Phasex = doc_elec["Phase"];
+  Phase = (String)Phasex;
+  // Serial.println(Sendmod);
+
+  const char *electricity_meter_numberx = doc_elec["electricity_meter_number"];
+  electricity_meter_number = (String)electricity_meter_numberx;
+
+  TotalPower = doc_elec["TotalPower"];
+  TotalVoltage = doc_elec["TotalPower"];
+  TotalCurrent = doc_elec["TotalPower"];
+  Activepower = doc_elec["TotalPower"];
+  Apparentpower = doc_elec["TotalPower"];
+  GridFrequency = doc_elec["TotalPower"];
+  MeterInternalTemperature = doc_elec["TotalPower"];
+  ClockBatteryVoltage = doc_elec["TotalPower"];
+
+  file_Elec.close();
+}
+
 /// @brief 读取本机存储的lic
 void rwConf::ReadLic()
 {
@@ -467,4 +501,46 @@ String rwConf::GetOneShtLic()
 String rwConf::GetTwoShtLic()
 {
   return TwoShtLic;
+}
+
+String rwConf::GetPhase()
+{
+  return Phase;
+}
+String rwConf::Get_electricity_meter_number()
+{
+  return electricity_meter_number;
+}
+
+bool rwConf::GetTotalPower()
+{
+  return TotalPower;
+}
+bool rwConf::GetTotalVoltage()
+{
+  return TotalVoltage;
+}
+bool rwConf::GetTotalCurrent()
+{
+  return TotalCurrent;
+}
+bool rwConf::GetActivepower()
+{
+  return Activepower;
+}
+bool rwConf::GetApparentpower()
+{
+  return Apparentpower;
+}
+bool rwConf::GetGridFrequency()
+{
+  return GridFrequency;
+}
+bool rwConf::GetMeterInternalTemperature()
+{
+  return MeterInternalTemperature;
+}
+bool rwConf::GetClockBatteryVoltage()
+{
+  return ClockBatteryVoltage;
 }
