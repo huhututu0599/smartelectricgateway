@@ -230,7 +230,7 @@ void rwConf::ReadElceConf()
   deserializeJson(docElec, fileElec);
 
   const char *Elce_Phase = docElec["Phase"];
-  Elce_Phase = (String)Elce_Phase;
+  Phase = (String)Elce_Phase;
 
   const char *oneSensorLic = docElec["Sensor_lic"]["One"];
   OneShtLic = (String)oneSensorLic;
