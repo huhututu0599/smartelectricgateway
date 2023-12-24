@@ -216,6 +216,32 @@ void rwConf::ReadLic()
   fileLic.close();
 }
 
+/// @brief 读取本机电表需要读取的数据的状态
+void rwConf::ReadElceConf()
+{
+
+  const size_t capacityLic = 1024;
+  DynamicJsonDocument docElec(capacityLic);
+
+  // 从闪存文件系统中读取即将解析的json文件
+  File fileElec = SPIFFS.open("/elec_conf.json", "r");
+
+  // 反序列化数据
+  deserializeJson(docElec, fileElec);
+
+  const char *Elce_Phase = docElec["Phase"];
+  Elce_Phase = (String)Elce_Phase;
+
+  const char *oneSensorLic = docElec["Sensor_lic"]["One"];
+  OneShtLic = (String)oneSensorLic;
+
+  const char *TwoSensorLic = docElec["Sensor_lic"]["Two"];
+  TwoShtLic = (String)TwoSensorLic;
+
+  fileElec.close();
+}
+
+
 void rwConf::SaveWorkConf(String sendmod, int mxnum, int mxAfrequency, int shtnum, int shtAfrequency, int fstnum, int fstAfrequency)
 {
   StaticJsonDocument<1024> doc31;
