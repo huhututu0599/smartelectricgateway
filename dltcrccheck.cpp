@@ -55,3 +55,19 @@ String dltcrccheck::makeCheck(const std::string &data)
     // return hexx + "16";
     return x1;
 }
+
+
+
+std::string dltcrccheck::packStringToHexArray(const std::string& input) {
+    std::ostringstream hexStream;
+
+    for (char c : input) {
+        if (isalpha(c)) {
+            // If the string contains letters, return 0xFF
+            return "0xFF";
+        }
+        hexStream << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(c);
+    }
+
+    return hexStream.str();
+}

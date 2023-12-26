@@ -77,8 +77,22 @@ void setup()
     
     Serial.println("123");
     //Serial.println(dc.calculateChecksum("6802020003202068110433343435"),HEX);
-    Serial.println(dc.makeCheck("6802020003202068110433343435"));
+   // Serial.println(dc.makeCheck("6802020003202068110433343435"));
     //Serial.println(dc.makeCheck("66666666"));
+    //std::string x1 ;
+    //x1 = dc.packStringToHexArray("6802020003202068110433343435");
+    //Serial.println((String)x1.c_str());
+
+    //dc.splitStringToHex("6802020003202068110433343435");
+    std::vector<uint8_t> hexArray = dc.splitStringToHex("6802020003202068110433343435");
+
+//    for (uint8_t value : hexArray) {
+//        Serial.println(static_cast<int>(value));
+//
+//        //std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(value) << " ";
+//    
+//    }
+   // std::cout << std::endl;
 }
 
 void loop()
