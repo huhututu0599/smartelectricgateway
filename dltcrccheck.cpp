@@ -71,3 +71,16 @@ std::string dltcrccheck::packStringToHexArray(const std::string& input) {
 
     return hexStream.str();
 }
+
+std::vector<uint8_t> dltcrccheck::stringToByteArray(const std::string& hexString) {
+    std::vector<uint8_t> byteArray;
+
+    // 逐个读取每两个字符，解析为一个字节
+    for (std::size_t i = 0; i < hexString.length(); i += 2) {
+        std::string byteString = hexString.substr(i, 2);
+        uint8_t byte = static_cast<uint8_t>(std::stoul(byteString, nullptr, 16));
+        byteArray.push_back(byte);
+    }
+
+    return byteArray;
+}

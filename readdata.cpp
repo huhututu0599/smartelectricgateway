@@ -42,7 +42,7 @@ std::map<std::string, std::string> readdata::ReadDLTdata()
 
     std::map<std::string, std::string> dicz;
 
-    Serial.println("state=2常规工作模式-------------菲尔斯特探头工作模式");
+    Serial.println("state=2");
     // delay(1000);
 
     // 总电能
@@ -139,7 +139,7 @@ void readdata::reverseBytes(unsigned char *input, unsigned char *output, int siz
     digitalWrite(RE, HIGH);
     delay(10);
     Serial.println("Start Write");
-    Serial.println(size);
+    Serial.println( );
     mod.write(input, size);
     Serial.println("end write");
 
@@ -197,20 +197,6 @@ void readdata::ReadTotalPower()
     {
         if (outputdataTotalPower[i] == 0x91)
         {
-            // // Onebit、TwoBit、ThreeBit、FourBit
-            // Serial.println("↓-----------------------↓");
-            // Serial.println((int)outputdata[i + 6], HEX);
-            // Serial.println((int)outputdata[i + 7], HEX);
-            // Serial.println((int)outputdata[i + 8], HEX);
-            // Serial.println((int)outputdata[i + 9], HEX);
-            // Serial.println("↑-----------------------↑");
-            // Serial.println("↓222-----------------------222↓");
-            // Serial.println((int)outputdata[i + 6] - 0x33, HEX);
-            // Serial.println((int)outputdata[i + 7] - 0x33, HEX);
-            // Serial.println((int)outputdata[i + 8] - 0x33, HEX);
-            // Serial.println((int)outputdata[i + 9] - 0x33, HEX);
-            // Serial.println("↑222-----------------------222↑");
-
             stringstream ss1;
             stringstream ss2;
             // ss << mp3["Onebit"] << mp3["TwoBit"] << mp3["ThreeBit"] << mp3["FourBit"];

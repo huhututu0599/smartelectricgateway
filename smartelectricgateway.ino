@@ -4,9 +4,9 @@
 
 #include <cstring>
 
-#include "conncetwifi.h"
-#include "mqttmsg.h"
-#include "conftime.h"
+// #include "conncetwifi.h"
+// #include "mqttmsg.h"
+// #include "conftime.h"
 
 #include <iostream>
 #include <string>
@@ -17,29 +17,30 @@
 
 #include <Ticker.h>
 #include "dltcrccheck.h"
+#include <vector>
 using namespace std;
 
-//Ticker ticker;
-//readdata rs;
-//MqttMethod mqmsg;
+// Ticker ticker;
+// readdata rs;
+// MqttMethod mqmsg;
 //
-//confTime cft;
-//int count1; // Ticker计数用变量
+// confTime cft;
+// int count1; // Ticker计数用变量
 //
-//void tickerCount()
+// void tickerCount()
 //{
-//    count1++;
-//}
-//spfile sp;
-dltcrccheck dc ;
+//     count1++;
+// }
+// spfile sp;
+dltcrccheck dc;
 void setup()
 {
     Serial.begin(115200);
-    //ticker.attach(1, tickerCount);
-    // connectWiFi();
-    // mqmsg.connectMQTTServer();
+    // ticker.attach(1, tickerCount);
+    //  connectWiFi();
+    //  mqmsg.connectMQTTServer();
 
-   // rs.OneFstSetUp();
+    // rs.OneFstSetUp();
 
     // if (!SD.begin())
     // {
@@ -74,25 +75,34 @@ void setup()
 
     // sp.writeFile(SD, "/hello.txt", "Hello ");
     // sp.appendFile(SD, "/hello.txt", "World!\n");
-    
+
     Serial.println("123");
-    //Serial.println(dc.calculateChecksum("6802020003202068110433343435"),HEX);
-   // Serial.println(dc.makeCheck("6802020003202068110433343435"));
-    //Serial.println(dc.makeCheck("66666666"));
-    //std::string x1 ;
-    //x1 = dc.packStringToHexArray("6802020003202068110433343435");
-    //Serial.println((String)x1.c_str());
+    // Serial.println(dc.calculateChecksum("6802020003202068110433343435"),HEX);
+    // Serial.println(dc.makeCheck("6802020003202068110433343435"));
+    // Serial.println(dc.makeCheck("66666666"));
 
-    //dc.splitStringToHex("6802020003202068110433343435");
-    std::vector<uint8_t> hexArray = dc.splitStringToHex("6802020003202068110433343435");
+    Serial.println("↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓");
+    int x1;
+    x1 = dc.calculateChecksum("6802020003202068110433343435");
+    Serial.println(x1);
+    Serial.println("↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑");
+    // dc.splitStringToHex("6802020003202068110433343435");
+    // std::vector<uint8_t> hexArray = dc.splitStringToHex("6802020003202068110433343435");
 
-//    for (uint8_t value : hexArray) {
-//        Serial.println(static_cast<int>(value));
-//
-//        //std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(value) << " ";
-//    
-//    }
-   // std::cout << std::endl;
+    vector<uint8_t> hexc = dc.stringToByteArray("6802020003202068110433343435");
+    for (size_t i = 0; i < hexc.size(); i++)
+    {
+        Serial.println(static_cast<int>(hexc[i]), HEX);
+    }
+
+    //    for (uint8_t value : hexArray) {
+    //        Serial.println(static_cast<int>(value));
+    //
+    //        //std::cout << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(value) << " ";
+    //
+    //    }
+    // std::cout << std::endl;
+
 }
 
 void loop()
@@ -104,7 +114,7 @@ void loop()
     // sp.appendFile(SD, "/hello.txt", cft.ReadConftime().c_str());
     // delay(1000);
 
-        // delay(7000);
+    // delay(7000);
 
     //     rs.ReadTotalVoltage();
     //     Serial.println("电压是：");
