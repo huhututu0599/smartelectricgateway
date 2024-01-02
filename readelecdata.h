@@ -9,7 +9,7 @@ class readelecdata
 public:
     void SetInit();
     void reverseBytes(unsigned char *input, unsigned char *output, int size);
-    void ReadTotalPower();
+    void ReadTotalPower(const std::string &input);
 
     String GetElecTotalPower();
     String GetElecTotalVoltage();

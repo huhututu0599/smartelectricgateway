@@ -9,6 +9,8 @@
 #define RE 4                 // Connect RE terminal with 32 of ESP
 #define DE 5                 // Connect DE terminal with 33 of ESP
 SoftwareSerial modx(16, 17); // RX=16->RO , TX =17
+
+dltcrccheck dc;
 using namespace std;
 
 void readelecdata::SetInit()
